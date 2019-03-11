@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    GNDU
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+
+</head>
+
+
+    <body class="about-us sidebar-collapse">
+   
+  <nav class="navbar bg-dark fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" role="navigation-demo">
+            <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-translate">
+                <a class="btn btn-rose btn btn-primary" <a href="{% url "home"  %}">Brogrammers</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a href="{% url "about" %}" class="nav-link">
+                      about
+                    </a>
+                  </li>
+                  <li class="dropdown nav-item">
+                    <a href="{% url "events:event" %}" class="nav-link">
+                      events
+                    </a>
+                  </li>
+
+{% if request.user.is_authenticated %}
+                      <li class="nav-item">
+                        <div class="col-lg-6 col-md-6">
+                            <a href="{% url "logout" %}" class="btn btn-rose btn-round">
+                                    <i class="material-icons">account_circle</i>
+
+                                   {{request.user}} Logout
+                              </a>
+                            </div>
+                            </li>
+{% else %}
+
+                      <li class="nav-item">
+                        <div class="col-lg-6 col-md-6">
+                                <button class="btn btn-rose btn-round" data-toggle="modal" data-target="#loginModal">
+                                    <i class="material-icons">account_circle</i>
+                                    Login
+                                </button>
+                            </div>
+                      </li>
+                       <li class="nav-item">
+                    <a href="{% url "accounts:signup" %}" class="btn btn-rose btn-round">
+                        <i class="material-icons">account_circle</i>
+                      Register
+                    </a>
+                  </li>
+{% endif %}
+                </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+          </nav>
+
+      {% if messages %}
+        <ul class="messages" color=#ffffff>
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      {% endif %}
+          <form accept-charset="UTF-8" role="form" method="post">
+                {% csrf_token %}
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-login" role="document">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <div class="card-header card-header-primary text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                        <h4 class="card-title">Log in</h4>
+                        <div class="social-line">
+                          <a href="#pablo" class="btn btn-just-icon btn-link">
+                            <i class="fa fa-facebook-square"></i>
+                          </a>
+                          <a href="#pablo" class="btn btn-just-icon btn-link">
+                            <i class="fa fa-twitter"></i>
+                          </a>
+                          <a href="#pablo" class="btn btn-just-icon btn-link">
+                            <i class="fa fa-google-plus"></i>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="form" method="" action="">
+                        <p class="description text-center">Or Be Classical</p>
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="material-icons">face</i>
+                                    </span>
+                                  </div>
+                                  <input type="text" name="username" class="form-control" placeholder="User Name...">
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                  </div>
+                                    <input type="text" class="form-control" placeholder="Email...">
+                                </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                  </div>
+                                  <input type="password" name="password" placeholder="Password..." class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+
+    <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('{% static 'img/3bg.jpg' %}');">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+                  <h1 class="title">Terms and conditions</h1>
+                      <h4>GNDU Tech Fest 2018.</br>Organised by Gndu society.</h4>
+              </div>
+          </div>
+      </div>
+</div>
+<div class="main main-raised">
+       <div class="container">
+       	  <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Commitment</h2>
+               <h5 class="description">Techfest is committed to protect the privacy and security of your personal information. We want to share with you how we treat personal information about you that we receive in connection with this Website.</h5>
+                <h2 class="title">What information do we collect?</h2>
+               <h5 class="description">We collect information from you when you register on our website or when you register to make the payment. When ordering or registering on our site, as appropriate, you may be asked to enter your name, e-mail address, mailing address, phone number or Credit Card/ Debit Card/Net Banking information (whichever you opted). You may, however, visit our site anonymously.</h5> <h2 class="title">What do we use your information for?
+</h2>
+               <h5 class="description">Any information that is collected from you may be used in one of the following ways:<br><br>
+
+To personalize your experience and to process transactions.<br><br>
+Your information helps us to respond better to your individual needs.<br><br>
+We continuously strive to improve our website offerings based on the information and feedback we receive from you.<br><br>
+To administer a contest, promotion, survey or other site feature<br><br>
+The email address provided may be used to conduct online surveys, give latest details about the festival or publicizing Techfest or any of its associates.<br><br>
+The email address you provide for order processing may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.
+Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</h5> <h2 class="title">Note</h2>
+               <h5 class="description">If at any time you would like to unsubscribe from receiving future emails, you can send us an email at unsubscribe@techfest.org to unsubscribe from the periodic mails.</h5> <h2 class="title">How do we protect your information?</h2>
+               <h5 class="description">We implement a variety of security measures to maintain the safety of your personal information when you place an order.
+
+We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to keep the information confidential.
+
+After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.
+</h5> <h2 class="title">Do we use cookies?</h2>
+               <h5 class="description">Yes (cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture certain information.
+
+We use cookies to compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
+
+If you prefer, you can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies via your browser settings. Like most websites, if you turn your cookies off, some of our services may not function properly. However, you can still place orders over the telephone.</h5> <h2 class="title">Do we disclose any information to outside parties?
+</h2>
+               <h5 class="description">We do not sell, trade, or otherwise, transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, as long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.<br><br>
+
+Third party links<br><br>
+
+Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We, therefore, have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.<br><br>
+
+California Online Privacy Protection Act Compliance<br><br>
+
+Because we value your privacy, we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.<br><br>
+
+Children’s Online Privacy Protection Act Compliance<br><br>
+
+We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old.<br><br>
+</h5>
+ <h2 class="title">Online Privacy Policy Only</h2>
+               <h5 class="description">This online privacy policy applies only to information collected through our website and not to information collected offline.
+
+All of the rights of Techfest 2017-18 website belong to Techfest, GNDU-Amritsar</h5>
+                
+                 <h2 class="title">Your Consent</h2>
+               <h5 class="description">By using our site, you consent to our online privacy policy.</h5>
+                
+                 <h2 class="title">Changes to our Privacy Policy</h2>
+               <h5 class="description">If we decide to change our privacy policy, we will post those changes on this page.
+All rights reserved © Techfest 2017-18
+</h5>
+                
+</div>
+              
+       </div>
+        <div class="social-line social-line-white text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <h4 class="title">Thank you for your support!</h4>
+                        </div>
+                           
+                    </div>
+                </div>
+            </div>
+</div>
+<footer class="footer footer-default">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="{% url "home" %}">
+              Brogrammers
+            </a>
+          </li>
+          <li>
+            <a href="{% url "about" %}">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="{% url "privacy" %}">
+              terms and conditions
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made with <i class="material-icons">favorite</i> by
+        <a href="{% url "home" %}" target="_blank">Brogrammers</a> .
+      </div>
+    </div>
+  </footer>
+<!--   Core JS Files   -->
+  <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="{% static 'js/plugins/bootstrap-selectpicker.js' %}" type="text/javascript"></script>
+
+  <!--  Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <!--  Plugin for Sharrre btn -->
+  <script src="{% static 'js/plugins/jquery.sharrre.js' %}" type="text/javascript"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Commitment
+
+Techfest is committed to protect the privacy and security of your personal information. We want to share with you how we treat personal information about you that we receive in connection with this Website.
+
+What information do we collect?
+
+We collect information from you when you register on our website or when you register to make the payment. When ordering or registering on our site, as appropriate, you may be asked to enter your name, e-mail address, mailing address, phone number or Credit Card/ Debit Card/Net Banking information (whichever you opted). You may, however, visit our site anonymously.
+
+What do we use your information for?
+
+Any information that is collected from you may be used in one of the following ways:
+
+> To personalize your experience and to process transactions.
+> Your information helps us to respond better to your individual needs.
+> We continuously strive to improve our website offerings based on the information and feedback we receive from you.
+> To administer a contest, promotion, survey or other site feature
+> The email address provided may be used to conduct online surveys, give latest details about the festival or publicizing Techfest or any of its associates.
+> The email address you provide for order processing may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.
+Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.
+
+Note
+
+If at any time you would like to unsubscribe from receiving future emails, you can send us an email at unsubscribe@techfest.org to unsubscribe from the periodic mails.
+
+How do we protect your information?
+
+We implement a variety of security measures to maintain the safety of your personal information when you place an order.
+
+We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to keep the information confidential.
+
+After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.
+
+Do we use cookies?
+
+Yes (cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture certain information.
+
+We use cookies to compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
+
+If you prefer, you can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies via your browser settings. Like most websites, if you turn your cookies off, some of our services may not function properly. However, you can still place orders over the telephone.
+
+Do we disclose any information to outside parties?
+
+We do not sell, trade, or otherwise, transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, as long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
+
+Third party links
+
+Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We, therefore, have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.
+
+California Online Privacy Protection Act Compliance
+
+Because we value your privacy, we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.
+
+Children’s Online Privacy Protection Act Compliance
+
+We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old.
+
+Online Privacy Policy Only
+
+This online privacy policy applies only to information collected through our website and not to information collected offline.
+
+All of the rights of Techfest 2017-18 website belong to Techfest, IIT Bombay.
+
+Your Consent
+
+By using our site, you consent to our online privacy policy.
+
+Changes to our Privacy Policy
+
+If we decide to change our privacy policy, we will post those changes on this page.
+All rights reserved © Techfest 2017-18 
+  </body>
+</html>-->

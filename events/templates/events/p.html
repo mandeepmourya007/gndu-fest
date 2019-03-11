@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylep.css" type="text/css">
+
+    <title>Student participated in particular event</title>
+  </head>
+  <body>
+
+    <!-- Just an image -->
+     <!-- Image and text -->
+<nav class="navbar navbar-light bg-dark">
+  <a class="navbar-brand" href="http://cess-soc-techfest.herokuapp.com/">
+    <h2> <span class="badge badge-secondary badge-danger">Brogrammers</span></h2>
+
+  </a>
+</nav>
+     <hr></hr>
+    {% for e in events %}
+       <div class="card">
+         <div class="card-header">
+           <center><h1>{{ e.name }} participant</h1></center>
+         </div>
+         <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                  {% for s in e.student_set.all %}
+                  <li class="list-group-item">{{ s.username }}</li>
+                  <br>
+                </ul>
+                 {% endfor %}
+                 <br>
+              </div>
+               
+        
+        
+               <footer class="blockquote-footer"> <cite title="Source Title"></cite></footer>
+            </blockquote>
+        </div>
+       </div>
+       {% endfor %}
+      
+      
+    
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
