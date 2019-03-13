@@ -77,7 +77,9 @@
                         <div class="col-lg-6 col-md-6">
                             <a href="{% url "logout" %}" class="btn btn-rose btn-round">
                                     <i class="material-icons">account_circle</i>
-                                   {{request.user}} Logout
+                                   <!-- {{request.user}} -->
+                                  Hi  {{ user.username }}!<br>
+                                  Logout 
                               </a>
                             </div>
                             </li>
