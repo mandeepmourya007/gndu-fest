@@ -21,6 +21,9 @@ def home(request):
             login(request,user)
             messages.success(request, 'Welcome to TechFest '+ u )
             return redirect("home")
+        else:
+            messages.error(request, 'Please check your email id or password')
+            return render(request,"home.html")
     return render(request,"home.html")
 
 
