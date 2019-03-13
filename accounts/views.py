@@ -1,3 +1,4 @@
+
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -53,7 +54,20 @@ def log_in(request):
 def studentform(request):
 
     if request.method == 'POST':
-        form = studentreg(request.POST)
+        print(request.POST)
+        print(request.POST.get("password2")
+)
+        form =studentreg(
+            # name=request.POST.get('name'),
+            # department_name=request.POST.get("department_name"),
+            # roll_no=request.POST.get("roll_no"),
+            # semester=request.POST.get("semester"),
+            # email_id=request.POST.get("email_id"),
+            # mobile_number=request.POST.get("mobile_number"),
+            # password=request.POST.get("password2")
+
+
+            )
         if form.is_valid():
             form.save()
 
@@ -76,7 +90,7 @@ def sign_up(request):
             password=form1.cleaned_data['password']
             user= User.objects.create_user(username=username,first_name=first_name,last_name =last_name,email=email,password =password,is_active=False)
             current_site = get_current_site(request)
-            uid3 =User.objects.get(pk=user.pk),
+            uid3 =User.objects.get(pk=user.pk),P[9]
             #encod = user.email.encode('base64','strict'),
             userdetail = {'user': username,
                 'domain': current_site.domain,

@@ -10,8 +10,9 @@
    </div>
    {% endif %}
    <div class="container" style="align-content: center background-color: rgb(255,255,255);">
-         <form method = 'post'  action = "" >
-       {% csrf_token %}
+        <form class="form" method="post" action="">
+            {%    csrf_token %}
+
        
       <!--  <div class='row'>
 
@@ -104,11 +105,25 @@
       <td scope="col" style="width:500px">{{ form.password }}</td>
   </tr>
   </thead>
-
-
-  
+    </thead>
  
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">Confirm password</td>
+      <td scope="col" style="width:500px"><input type="text" name="password2" maxlength="100" required id="id_password"></td>
+  </tr>
+  </thead>
+
+<button type="submit" class="btn btn-primary btn-round">REgister</button>
+ <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-round">Get Started</button>
+   </a>
+  </div>
+    </div> 
+
+         </form> 
+  
 
 
-         </form>    </div>   
+
          {% endblock %}
