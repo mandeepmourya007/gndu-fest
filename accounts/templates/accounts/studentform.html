@@ -9,8 +9,8 @@
    {% endfor %}
    </div>
    {% endif %}
-   <div class="container" style="background-color: rgb(255,255,255);">
-   <form method = 'post'  action = "" >
+   <div class="container" style="align-content: center background-color: rgb(255,255,255);">
+         <form method = 'post'  action = "" >
        {% csrf_token %}
        
       <!--  <div class='row'>
@@ -43,7 +43,10 @@
            {{ form.mobile_number }}
        
        <button class = "btn btn-primary" type = "submit">Submit </button>
-     </div> -->
+    
+-->
+
+
 
 
  
@@ -57,18 +60,55 @@
       
     </tr>
   </thead>
-  <tbody>
-    <tr>
+
+
+<thead>
+    <tr class ='col-md-4'>
       <td scope="col"></td>
-      <td scope="row">rall-no</td>
-      <td> {{ form.roll_no }}</td>
-      
-    </tr>
-   </div>
-<table>
-     </form>
-       {% endblock %}
+      <td scope="col">department_name</td>
+      <td scope="col" style="width:500px">{{ form.department_name }}</td>
+  </tr>
+  </thead>
+  <thead>
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">roll_no</td>
+      <td scope="col" style="width:500px">{{ form.roll_no }}</td>
+  </tr>
+  </thead>
+  <thead>
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">semester</td>
+      <td scope="col" style="width:500px">{{ form.semester }}</td>
+  </tr>
+  </thead>
+  <thead>
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">email_id</td>
+      <td scope="col" style="width:500px">{{ form.email_id }}</td>
+  </tr>
+  </thead>
+  <thead>
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">mobile_number</td>
+      <td scope="col" style="width:500px">{{ form.mobile_number }}</td>
+  </tr>
+  </thead>
+ 
+    <tr class ='col-md-4'>
+      <td scope="col"></td>
+      <td scope="col">password</td>
+      <td scope="col" style="width:500px">{{ form.password }}</td>
+  </tr>
+  </thead>
 
 
+  
+ 
 
-         </form>
+
+         </form>    </div>   
+         {% endblock %}

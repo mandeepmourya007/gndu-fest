@@ -18,11 +18,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
-
+  {% block css %}
+  <style>
+.footer {
+  background-color:rgb(0,0,1)
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: gray;
+  text-align: center;
+}
+</style>
+  {% endblock %}
 </head>
 
 <body>
-{% block nav %}
+
 <nav class="navbar bg-dark fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" role="navigation-demo">
             <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,11 +62,11 @@
                       events
                     </a>
                   </li>
-                     <li class="dropdown nav-item">
+                    <!--  <li class="dropdown nav-item">
                     <a href="{% url "placement" %}" class="nav-link">
                       Placement
                     </a>
-                  </li>
+                  </li> -->
                     <li class="dropdown nav-item">
                     <a href="{% url "announcement" %}" class="nav-link">
                         Announcements
@@ -111,9 +124,9 @@
         <div class="clearfix"></div>
 </nav>
 {% endif %}
-{% endblock %}
-{% block content %}
-{% block message  %}
+
+<div>
+  {% block message  %}
  {% if messages %}
    <div class="alert alert-success" role="alert">
    {% for message in messages %}
@@ -122,11 +135,21 @@
    {% endif %}
 
 {% endblock %}
+
+<div style="position:absolute; top: 80px;">
+
+
+  
+{% block content %}
+
+
+
+
 {% endblock %}
-
-
- <footer class="footer footer-default">
-    <div class="container">
+</div>
+{% block footer %}
+ <footer class="footer footer-default " style="position:fixed">
+    <div class="container footer">
       <nav class="float-left">
         <ul>
           <li>
@@ -155,6 +178,7 @@
       </div>
     </div>
   </footer>
+  {% endblock %}
   <!--   Core JS Files   -->
   <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
   <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
