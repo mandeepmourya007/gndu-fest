@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate,login,logout
 from .models import student
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import studentreg , userform
+from .forms import studentreg, userform
 from .models import studentsignup
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -54,10 +54,9 @@ def log_in(request):
 def studentform(request):
 
     if request.method == 'POST':
-        print(request.POST)
-        print(request.POST.get("password2")
-)
-        form =studentreg(
+        #print(request.POST)
+        #print(request.POST.get("password2"))
+        form = studentreg(request.POST)
             # name=request.POST.get('name'),
             # department_name=request.POST.get("department_name"),
             # roll_no=request.POST.get("roll_no"),
@@ -67,7 +66,7 @@ def studentform(request):
             # password=request.POST.get("password2")
 
 
-            )
+
         if form.is_valid():
             form.save()
 

@@ -11,118 +11,126 @@
    {% endif %}
    <div class="container" style="align-content: center background-color: rgb(255,255,255);">
         <form class="form" method="post" action="">
-            {%    csrf_token %}
+            {% csrf_token %}
 
        
-      <!--  <div class='row'>
+       <div class='row'>
 
-           <div class="col-md-4">Name</div>
-            <div class="col-md-4">
+           <!--<div class="col-md-4">Name</div>-->
+            <!--<div class="col-md-4">-->
 
-           {{ form.name }}
+           <!--{{ form.name }}-->
+       <!--</div>-->
+       <!--</div>-->
+
+        <!--<div class="col-md-12">-->
+
+           <!--{{ form.roll_no }}-->
+       <!--</div>-->
+        <!--<div class="col-md-12">-->
+
+           <!--{{ form.department_name }}-->
+       <!--</div>-->
+        <!--<div class="col-md-12">-->
+
+           <!--{{ form.semester }}-->
+       <!--</div>-->
+        <!--<div class="col-md-12">-->
+
+           <!--{{ form.email_id }}-->
+       <!--</div>-->
+       <!--<div class="col-md-12">-->
+
+           <!--{{ form.mobile_number }}-->
+       <!--</div>-->
+           <!--<div class="col-md-12">-->
+
+           <!--{{ form.password }}-->
+       <!--</div>-->
+         {{ form.as_p }}
        </div>
-       </div>
-      
-        <div class="col-md-4">
 
-           {{ form.roll_no }}
-       </div>
-        <div class="col-md-4">
-
-           {{ form.department_name }}
-       </div>
-        <div class="col-md-4">
-
-           {{ form.semester }}
-       </div>
-        <div class="col-md-4">
-
-           {{ form.email_id }}
-       </div>
-       <div class="col-md-4">
-
-           {{ form.mobile_number }}
-       
        <button class = "btn btn-primary" type = "submit">Submit </button>
-    
--->
+        </form>
+
+
 
 
 
 
  
 
-   <table class="table">
-  <thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">name</td>
-      <td scope="col" style="width:500px">{{ form.name }}</td>
-      
-    </tr>
-  </thead>
+   <!--<table class="table">-->
+  <!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">name</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.name }}</td>-->
+      <!---->
+    <!--</tr>-->
+  <!--</thead>-->
 
 
-<thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">department_name</td>
-      <td scope="col" style="width:500px">{{ form.department_name }}</td>
-  </tr>
-  </thead>
-  <thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">roll_no</td>
-      <td scope="col" style="width:500px">{{ form.roll_no }}</td>
-  </tr>
-  </thead>
-  <thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">semester</td>
-      <td scope="col" style="width:500px">{{ form.semester }}</td>
-  </tr>
-  </thead>
-  <thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">email_id</td>
-      <td scope="col" style="width:500px">{{ form.email_id }}</td>
-  </tr>
-  </thead>
-  <thead>
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">mobile_number</td>
-      <td scope="col" style="width:500px">{{ form.mobile_number }}</td>
-  </tr>
-  </thead>
- 
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">password</td>
-      <td scope="col" style="width:500px">{{ form.password }}</td>
-  </tr>
-  </thead>
-    </thead>
- 
-    <tr class ='col-md-4'>
-      <td scope="col"></td>
-      <td scope="col">Confirm password</td>
-      <td scope="col" style="width:500px"><input type="text" name="password2" maxlength="100" required id="id_password"></td>
-  </tr>
-  </thead>
+<!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">department_name</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.department_name }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">roll_no</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.roll_no }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">semester</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.semester }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">email_id</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.email_id }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<thead>-->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">mobile_number</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.mobile_number }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+ <!---->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">password</td>-->
+      <!--<td scope="col" style="width:500px">{{ form.password }}</td>-->
+  <!--</tr>-->
+  <!--</thead>-->
+    <!--</thead>-->
+ <!---->
+    <!--<tr class ='col-md-4'>-->
+      <!--<td scope="col"></td>-->
+      <!--<td scope="col">Confirm password</td>-->
+      <!--<td scope="col" style="width:500px"><input type="text" name="password2" maxlength="100" required id="id_password"></td>-->
+  <!--</tr>-->
+  <!--</thead>-->
 
-<button type="submit" class="btn btn-primary btn-round">REgister</button>
- <div class="text-center">
-    <button type="submit" class="btn btn-primary btn-round">Get Started</button>
-   </a>
-  </div>
-    </div> 
+<!--<button type="submit" class="btn btn-primary btn-round">REgister</button>-->
+ <!--<div class="text-center">-->
+    <!--<button type="submit" class="btn btn-primary btn-round">Get Started</button>-->
+   <!--</a>-->
+  <!--</div>-->
+    <!--</div> -->
 
-         </form> 
-  
+         <!--</form> -->
+  <!---->
 
 
 

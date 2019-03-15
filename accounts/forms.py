@@ -24,7 +24,7 @@ class studentreg(forms.ModelForm):
 
     mobile_number = forms.CharField(widget = forms.TextInput(attrs={'class':'form-group input-group','placeholder':'Mobile No' }),required = True,max_length=10)
     email_id = forms.EmailField(widget = forms.EmailInput(attrs={'class':'form-group input-group','placeholder':'Email'}),required = True,max_length=20)
-    password1 = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-group input-group','placeholder':'Password'}),required = True,max_length=100)
+    password = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-group input-group','placeholder':'Password'}),required = True,max_length=100)
    # password2 = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-group input-group','placeholder':'confirm Password'}),required = True,max_length=100)
 
     class Meta():
