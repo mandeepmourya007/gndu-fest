@@ -18,19 +18,22 @@ class studentreg(forms.ModelForm):
                  ('Dept_2', 'BTECH-CIVIL'),
                  ('Dept_3', 'BTECH-MECHANICAL'),)
     roll_no = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group ','placeholder':'Roll No'}),required = True,max_length=25)
-    name = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group','placeholder':'Enter your Name'}),required = True,max_length=60)
+    first_name = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group','placeholder':'First Name'}),required = True,max_length=60)
+    last_name = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group','placeholder':'Last Name'}),required = True,max_length=60)
+
     department_name = forms.ChoiceField(choices=dept_name,required = True)
+
     semester = forms.ChoiceField(choices=sem,required = True)
 
     mobile_number = forms.CharField(widget = forms.TextInput(attrs={'class':'form-group input-group','placeholder':'Mobile No' }),required = True,max_length=10)
-    email_id = forms.EmailField(widget = forms.EmailInput(attrs={'class':'form-group input-group','placeholder':'Email'}),required = True,max_length=20)
+    email_id = forms.EmailField(widget = forms.EmailInput(attrs={'class':'form-group input-group','placeholder':'Email'}),required = True,max_length=40)
     password = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-group input-group','placeholder':'Password'}),required = True,max_length=100)
    # password2 = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-group input-group','placeholder':'confirm Password'}),required = True,max_length=100)
 
     class Meta():
         ordering = ['roll_no']
         model = studentsignup
-        fields = ['roll_no','name','department_name','semester','mobile_number','email_id','password']
+        fields = ['roll_no','first_name','last_name','department_name','semester','mobile_number','email_id','password']
 
 
 

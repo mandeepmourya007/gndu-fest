@@ -14,7 +14,7 @@
             {% csrf_token %}
 
        
-       <div class='row'>
+
 
            <!--<div class="col-md-4">Name</div>-->
             <!--<div class="col-md-4">-->
@@ -47,8 +47,13 @@
 
            <!--{{ form.password }}-->
        <!--</div>-->
-         {{ form.as_p }}
-       </div>
+           <!--<div class = 'col-12'>{{ form.as_p }}</div>-->
+             {% for field in form %}
+        <label style="color:black" for="{{ field.name }}">{{ field.label }}</label>
+        {{ field }}&nbsp
+
+    {% endfor %}
+
 
        <button class = "btn btn-primary" type = "submit">Submit </button>
         </form>

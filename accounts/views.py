@@ -69,8 +69,32 @@ def studentform(request):
 
         if form.is_valid():
             form.save()
+            username = form.cleaned_data['email_id']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email_id']
+            password = form.cleaned_data['password']
+            user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
+                                            password=password, is_active=False)
+            current_site = get_current_site(request)
+            uid3 = User.objects.get(pk=user.pk)
+            # encod = user.email.encode('base64','strict'),
+            userdetail = {'user': username,
+                          'domain': current_site.domain,
+                          # 'encod':encod,
+                          'uid2': User.objects.get(pk=user.pk),
 
-            messages.success(request,'you details submiited ')
+                          'uid': urlsafe_base64_encode(force_bytes(uid3)),
+
+                          'token': account_activation_token.make_token(user)}
+            message = "hii " + userdetail['user'] + "\nclick on link " + userdetail[
+                'domain'] + "/accounts/activate" + "/" + str(userdetail['uid2']) + "/" + str(userdetail['token'])
+            mail_subject = 'Activate your blog account.'
+            to_email = form.cleaned_data.get('email_id')
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.send()
+
+            messages.success(request,'GO to your spam mail to activate your email ')
             return HttpResponseRedirect('')
     else:
         form = studentreg()

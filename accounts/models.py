@@ -24,15 +24,16 @@ class studentsignup(models.Model):
 
            )
     roll_no = models.CharField(max_length=25,unique=True)
-    name = models.CharField(max_length = 60)
+    first_name = models.CharField(max_length = 60)
+    last_name = models.CharField(max_length=60,default="")
     department_name = models.CharField(max_length=70, choices=dept_name,
                                        default='Dept_1')
     semester = models.CharField(max_length=10,
                                 choices = sem, default='I')
     mobile_number = models.CharField(max_length=10)
-    email_id = models.EmailField(max_length=20)
+    email_id = models.EmailField(max_length=40)
     password = models.CharField(max_length = 100)
     def __str__(self):
-      return self.name
+      return self.first_name
     class Meta():
         ordering = ['roll_no']
