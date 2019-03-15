@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import event
 from .forms import eventform
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import user_passes_test
 
 def eventf(request):
     events=event.objects.all()
@@ -20,6 +20,7 @@ def enterevent(request,number):
     events = event.objects.filter(id = number)
     return render(request,"events/enterevent.html",{ "events":events})
 
+@user_passes_test(lambda u: u.is_staff)
 def eventreg(request):
     if request.method == 'POST':
         form = eventform(request.POST)
