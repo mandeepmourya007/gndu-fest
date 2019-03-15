@@ -10,7 +10,7 @@
    </div>
    {% endif %}
    <div class="container" style="align-content: center background-color: rgb(255,255,255);">
-        <form class="form" method="post" action="">
+        <form class="form" method="post" action="" onsubmit="pass_validation()">
             {% csrf_token %}
 
        
@@ -53,7 +53,7 @@
         {{ field }}&nbsp
 
     {% endfor %}
-
+    <input type="password" name="password" class="form-group input-group" placeholder=" confirm Password" maxlength="100" required="" id="id_password1">
 
        <button class = "btn btn-primary" type = "submit">Submit </button>
         </form>
@@ -140,3 +140,23 @@
 
 
          {% endblock %}
+{% block js %}<script>
+
+  
+  function pass_validation(){
+
+  var password = document.getElementById("id_password");
+  var password_confirm = document.getElementById("id_password1");
+  var pass_message = document.getElementById("pass_confirm");
+    
+  if(password.value == password_confirm.value){
+    
+    
+  }else{
+    alert("password does not match");
+    
+  }
+  console.log("password.value");
+  }
+
+</script>{% endblock %}
