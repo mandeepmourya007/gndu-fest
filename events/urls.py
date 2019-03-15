@@ -6,5 +6,6 @@ urlpatterns = [
 
     path("",views.eventf,name="event"),
     path("enterevent<int:number>",views.enterevent,name="enterevent"),
+    path("eventreg",views.eventreg,name="event"),
     path("p",views.p),
     ]
