@@ -6,7 +6,7 @@ class event(models.Model):
     detail=models.TextField()
     event_organisers = models.CharField(max_length=200,default="")
     image=models.FileField(null=True,blank=True,upload_to="static/events/images")
-    date = models.DateTimeField(auto_now=False, auto_now_add=False,null=True,blank=True)
+    date = models.DateField(null=True)
 
     def __str__(self):
         return self.name
