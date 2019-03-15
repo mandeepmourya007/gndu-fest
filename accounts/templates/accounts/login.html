@@ -86,7 +86,9 @@
             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
       {% endfor %}
       {% endif %}
-          <form accept-charset="UTF-8" role="form" method="post">
+
+
+          <form action="{% url "accounts:login" %}" accept-charset="UTF-8" role="form" method="post">
                 {% csrf_token %}
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">

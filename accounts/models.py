@@ -35,5 +35,7 @@ class studentsignup(models.Model):
     password = models.CharField(max_length = 100)
     def __str__(self):
       return self.first_name
+    def get_email(self):
+      return self.email_id
     class Meta():
         ordering = ['roll_no']
