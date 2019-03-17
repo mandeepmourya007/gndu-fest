@@ -10,8 +10,7 @@
    </div>
    {% endif %}
    
-            {% csrf_token %}
-
+          
     {% block css %} <style class="cp-pen-styles">h3{
   font-family: Calibri; 
   font-size: 25pt;         
@@ -91,6 +90,9 @@ table.inner{
            <!--{{ form.password }}-->
        <!--</div>-->
            <!--<div class = 'col-12'>{{ form.as_p }}</div>-->
+ <form class="form" method="post" action="">
+             {% csrf_token %}
+
              {% for field in form %}
         <h4 style="color:black" for="{{ field.name }}">{{ field.label }}</h4>
         {{ field }}&nbsp

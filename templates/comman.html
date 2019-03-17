@@ -53,6 +53,8 @@
                       Placement
                     </a>
                   </li> -->
+{% if request.user.is_active and   request.user.is_superuser %}
+    
 
 
                    <li class="dropdown nav-item">
@@ -60,6 +62,7 @@
                     Add  event
                     </a>
                   </li>
+                  {% endif %}
                     <li class="dropdown nav-item">
                     <a href="{% url "announcement" %}" class="nav-link">
                         Announcements
