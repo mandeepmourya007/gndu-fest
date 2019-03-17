@@ -80,12 +80,11 @@
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="page-header header-filter" style="background-image: url('{% static 'img/1bg.jpg' %}');">
+                        <div class="page-header header-filter" style="background-image: url('{% static 'img/gndu1.jpg' %}');">
                             <div class="container">
                                 <div class="row">
                                      <div class="col-md-8 ml-auto mr-auto text-center">
@@ -103,36 +102,9 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="carousel-item">
-                        <div class="page-header header-filter" style="background-image: url('{% static 'img/2bg.jpg' %}');">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-8 ml-auto mr-auto text-center">
-                                        <h1 class="title">GNDU techfest</h1>
-                                        <h4>Organised by GNDU</h4>
-                                        <br>
-                                        <h6>Connect with us on:</h6>
-                                        <div class="buttons">
-                                            <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
-                                                <i class="fa fa-facebook-square"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                            <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="page-header header-filter" style="background-image: url('{% static 'img/3bg.jpg' %}');">
+                        <div class="page-header header-filter" style="background-image: url('{% static 'img/gndu2.jpg' %}');">
                             <div class="container">
                                 <div class="row">
                                       <div class="col-md-8 ml-auto mr-auto text-center">
@@ -140,9 +112,13 @@
                                         <h4>Register today in various awesome events</h4>
                                         <br>
                                         <div class="buttons">
-                                            <a href="#pablo" class="btn btn-white btn-link btn-lg">
+                                             <button class="btn btn-rose btn-round"
+                                           <a href="{% url "home"  %}" class="btn btn-white btn-link btn-lg">
+                                               
                                                 <i class="material-icons">share</i> Share
                                             </a>
+                                        </button>
+
 
                                         </div>
                                     </div>
@@ -543,7 +519,7 @@
                             </div>
                      </div>
 
-                     <div class="row">
+                    <div class="row justify-content-center">
                             <div class="col-md-3">
                                    <div class="card card-profile card-plain">
                                           <div class="card-avatar">
@@ -554,34 +530,6 @@
 
                                           <div class="card-body">
                                                  <h4 class="card-title">Sanyam</h4>
-                                                 <h6 class="category text-muted">Web Designer and developer </h6>
-
-                                                 
-                                          </div>
-                                          <div class="card-footer justify-content-center">
-                                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter">
-                                                        <i class="fa fa-twitter"></i>
-                                                 </a>
-                                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-facebook">
-                                                        <i class="fa fa-facebook-square"></i>
-                                                 </a>
-                                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-google">
-                                                        <i class="fa fa-google"></i>
-                                                 </a>
-                                          </div>
-                                   </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                   <div class="card card-profile card-plain">
-                                          <div class="card-avatar">
-                                                 <a href="#pablo">
-                                                        <img class="img" src="/static/img/faces/avatar.jpg">
-                                                 </a>
-                                          </div>
-
-                                          <div class="card-body">
-                                                 <h4 class="card-title">Amit</h4>
                                                  <h6 class="category text-muted">Web Designer and developer</h6>
 
                                                  
@@ -599,6 +547,8 @@
                                           </div>
                                    </div>
                             </div>
+
+                           
 
                             <div class="col-md-3">
                                    <div class="card card-profile card-plain">
@@ -627,7 +577,6 @@
                                           </div>
                                    </div>
                             </div>
-
                             <div class="col-md-3">
                                    <div class="card card-profile card-plain">
                                           <div class="card-avatar">
@@ -637,7 +586,7 @@
                                           </div>
 
                                           <div class="card-body">
-                                                 <h4 class="card-title">Navjot</h4>
+                                                 <h4 class="card-title">Amit</h4>
                                                  <h6 class="category text-muted">Web Designer and developer</h6>
 
                                                  
@@ -655,6 +604,7 @@
                                           </div>
                                    </div>
                             </div>
+                            
                      </div>
 
               </div>
