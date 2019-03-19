@@ -77,16 +77,13 @@
                             </div>
                             </li>
 {% else %}
-                  <li class="nav-item">
-                        <div class="col-lg-6 col-md-6">
-                                <button class="btn btn-rose btn-round" data-toggle="modal" data-target="#loginModal">
-                                    <i class="material-icons">account_circle</i>
-                                    Login
-                                </button>
-                            </div>
-                          </li>
-                      <li class="nav-item">
-                    <a href="{% url "accounts:signup" %}" class="btn btn-rose btn-round">
+                  <li class="button-container nav-item iframe-extern">
+            <button data-toggle="modal" data-target="#loginModal"  class="btn  btn-rose   btn-round btn-block">
+              <i class="material-icons">account_circle</i> Login
+            </button>
+          </li>
+                    <li class="button-container nav-item iframe-extern">
+                    <a href="{% url "accounts:signup" %}" class="btn btn-rose btn-round btn-block">
                         <i class="material-icons">account_circle</i>
                       Register
                     </a>

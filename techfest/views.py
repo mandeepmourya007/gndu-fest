@@ -29,6 +29,8 @@ def home(request):
 
 def about(request):
     return render(request,"about.html")
+def demo(request):
+    return render(request,"demo.html")
 def privacy(request):
     return render(request,"privacy.html")
 def placement(request):

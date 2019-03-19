@@ -21,6 +21,7 @@ urlpatterns = [
     path("",views.home,name="home"),
     path("accounts/",include("accounts.urls",namespace="accounts")),
     path("about",views.about,name="about"),
+    path("demo",views.demo,name="demo"),
     path("privacy",views.privacy,name="privacy"),
     path("events/",include("events.urls",namespace="events")),
     path("logout",views.log_out,name="logout"),
