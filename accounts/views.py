@@ -95,7 +95,7 @@ def studentform(request):
             email.send()
 
             messages.success(request,'GO to your spam mail to activate your email ')
-            return HttpResponseRedirect('')
+            return HttpResponse('GO to your spam mail to activate your email')
     else:
         form = studentreg()
 

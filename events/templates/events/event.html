@@ -282,8 +282,8 @@
                          {%  for e in events %}
                 <div class="tab-pane" id="{{ e.name }}">
                   <h3 class="title">{{ e.name }}</h3>
-                  {{ e.detail }}
-
+                  <!-- {{ e.detail }}
+ -->
                 <div class="card card-plain card-blog">
                 <div class="row">
                     <div class="col-md-5">
@@ -299,7 +299,7 @@
                             <a href="#pablo">{{ e.name }}</a>
                         </h3>
                         <p class="card-description">
-                            {{ e.detail }}
+                            {{ e.detail|linebreaks }}
                         </p>
                         <div class="col-lg-4 col-md-6">
 
