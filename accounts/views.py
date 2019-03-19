@@ -16,7 +16,7 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
-
+from django.core.mail import BadHeaderError, send_mail
 
 
 def log_out(request):
@@ -89,13 +89,22 @@ def studentform(request):
                           'token': account_activation_token.make_token(user)}
             message = "hii " + userdetail['user'] + "\nclick on link " + userdetail[
                 'domain'] + "/accounts/activate" + "/" + str(userdetail['uid2']) + "/" + str(userdetail['token'])
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Activate your account.'
             to_email = form.cleaned_data.get('email_id')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
-
+            #email = EmailMessage(mail_subject, message, to=[to_email])
+            #email.send()
+            send_mail(
+    mail_subject,
+    message,
+    ['noreply@Tech.com'],
+    [to_email],
+)
             messages.success(request,'GO to your spam mail to activate your email ')
-            return HttpResponse('GO to your spam mail to activate your email')
+            return HttpResponse('Please confirm your email address to complete the registration')
+      #  else:
+
+      #      return HttpResponse('something went wrong Please try again')
+
     else:
         form = studentreg()
 
@@ -124,13 +133,20 @@ def sign_up(request):
 
                 'token': account_activation_token.make_token(user)}
             message = "hii "+ userdetail['user']+"\nclick on link "+userdetail['domain']+"/accounts/activate"+"/"+str(userdetail['uid2'])+"/"+str(userdetail['token'])
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Activate Your account.'
             to_email = form1.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
+            #email = EmailMessage(mail_subject, message, to=[to_email])
+            #email.send()
+            send_mail(
+    mail_subject,
+    message,
+    'noreply@Tech.com',
+    [to_email],
+)
             return HttpResponse('Please confirm your email address to complete the registration')
+        else:
 
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('somthing went wrong Pleasetry again')
 
     else:
         form1 = userform()

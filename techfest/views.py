@@ -35,7 +35,7 @@ def privacy(request):
     return render(request,"privacy.html")
 def placement(request):
     return render(request,"placement.html")
-@login_required(redirect_field_name='')
+#@login_required(redirect_field_name='')
 def announcement(request):
     announce = announcements.objects.all()
     return render(request,"announcement.html",{"announce":announce})
