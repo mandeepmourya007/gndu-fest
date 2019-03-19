@@ -37,7 +37,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
 
               <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav navbar-center ml-auto">
                   <li class="nav-item">
                     <a href="{% url "about" %}" class="nav-link">
                       about
@@ -68,7 +68,10 @@
                         Announcements
                     </a>
                   </li>
+                   </ul>
+                    <ul class="navbar-nav ml-auto">
 {% if request.user.is_authenticated %}
+
                       <li class="nav-item">
                         <div class="col-lg-6 col-md-6">
                             <a href="{% url "logout" %}" class="btn btn-rose btn-round">
