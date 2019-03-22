@@ -96,7 +96,7 @@ def studentform(request):
             send_mail(
     mail_subject,
     message,
-    ['noreply@Tech.com'],
+    ['noreply@Techfest.com'],
     [to_email],
 )
             messages.success(request,'GO to your spam mail to activate your email ')

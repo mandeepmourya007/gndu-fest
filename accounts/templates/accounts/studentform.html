@@ -66,15 +66,20 @@
  <form class="form" method="post" action="" onsubmit="pass_validation()">
              {% csrf_token %}
 
-
+            <div class='col-md-6'>
              {% for field in form %}
+              <!-- <div class='col-6'> -->
             <h3 class="title">
               {{ field.label }}
             </h3>
         
         {{ field }}&nbsp
 
+
+
     {% endfor %}
+  </div>
+      
     <input type="password" name="password" class="form-group input-group" placeholder=" confirm Password" maxlength="100" required="" id="id_password1">
 
        <button class = "btn btn-primary" type = "submit">Submit </button>
