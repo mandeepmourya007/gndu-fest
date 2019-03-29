@@ -1,12 +1,13 @@
 from django.db import models
 import datetime
-
+#from accounts.models import studentsignup
 class event(models.Model):
     name = models.CharField(max_length=100)
     detail=models.TextField()
-    event_organisers = models.CharField(max_length=200,default="")
+    event_organisers = models.ManyToManyField('accounts.studentsignup')
     image=models.FileField(null=True,blank=True,upload_to="static/events/images")
     date = models.DateField(null=True)
+
 
     def __str__(self):
         return self.name
