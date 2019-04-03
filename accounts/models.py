@@ -24,8 +24,8 @@ class studentsignup(models.Model):
 
            )
     roll_no = models.CharField(max_length=25,unique=True)
-    first_name = models.CharField(max_length = 60,unique=False)
-    last_name = models.CharField(max_length=60,default=" ",unique=False)
+    first_name = models.CharField(max_length = 60)
+    last_name = models.CharField(max_length=60,default=" ")
     department_name = models.CharField(max_length=70, choices=dept_name,
                                        default='Dept_1')
     semester = models.CharField(max_length=10,

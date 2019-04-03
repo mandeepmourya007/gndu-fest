@@ -4,7 +4,7 @@ import datetime
 class event(models.Model):
     name = models.CharField(max_length=100)
     detail=models.TextField()
-    event_organisers = models.ManyToManyField('accounts.studentsignup')
+   # event_organisers = models.ManyToManyField('accounts.studentsignup', blank=True)
     image=models.FileField(null=True,blank=True,upload_to="static/events/images")
     date = models.DateField(null=True)
 
