@@ -74,8 +74,9 @@ def studentform(request):
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email_id']
             password = form.cleaned_data['password']
-            user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
-                                            password=password, is_active=False)
+            user = User.objects.create_user(username=username, first_name=first_name,
+                                             last_name=last_name, email=email,
+                                               password=password, is_active=False)
             current_site = get_current_site(request)
             uid3 = User.objects.get(pk=user.pk)
             # encod = user.email.encode('base64','strict'),
