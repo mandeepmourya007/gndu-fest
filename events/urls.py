@@ -5,7 +5,7 @@ app_name="events"
 urlpatterns = [
 
     path("",views.eventf,name="event"),
-    path("enterevent<int:number>",views.enterevent,name="enterevent"),
+    path("enterevent<slug:number>",views.enterevent,name="enterevent"),
     path("eventreg",views.eventreg,name="eventreg"),
     path("p",views.p),
     ]

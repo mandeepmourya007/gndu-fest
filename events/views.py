@@ -4,6 +4,7 @@ from .forms import eventform
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 from accounts.models import studentsignup
+from .models import student_registered_events
 def eventf(request):
     events=event.objects.all()
 
@@ -15,10 +16,25 @@ def p(request):
     events=event.objects.all()
     return render(request,"events/p.html",{"events":events})
 
-def enterevent(request,number):
+# def enterevent(request,number):
 
-    events = event.objects.filter(id = number)
-    return render(request,"events/enterevent.html",{ "events":events})
+#     events = event.objects.filter(id = number)
+#     return render(request,"events/enterevent.html",{ "events":events})
+
+
+def enterevent(request,name):
+    if(request.user.is_authenticated):
+        email  = request.user
+        print("\n"+events+"\n")
+        payment = 'UNPAID'
+        s = student_registered_events(email,events,payment)
+        s.save()
+    # return render(request,"events/enterevent.html",{ "events":events})
+
+   
+
+
+
 
 #@user_passes_test(lambda u: u.is_staff)
 def eventreg(request):

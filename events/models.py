@@ -1,14 +1,25 @@
 from django.db import models
 import datetime
+from django.contrib.auth.models import User
+
+
+class event_organisers(models.Model):
+    name = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.name)
+
 
 class event(models.Model):
     name = models.CharField(max_length=100)
     detail=models.TextField()
 
-   # event_organisers = models.ManyToManyField('accounts.studentsignup', blank=True)
+    event_organisers = models.ManyToManyField('event_organisers',blank=True)
 
     image=models.FileField(null=True,blank=True,upload_to="static/events/images")
-    date = models.DateField(null=True)
+    price = models.CharField(max_length=10,default = 'Free')
+    
+    date_time = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name
@@ -62,3 +73,22 @@ class announcements(models.Model):
 from django.contrib import admin
 
 admin.site.register(announcements)
+admin.site.register(event_organisers)
+
+
+class student_registered_events(models.Model):
+    pay_status = (('PAID','PAID'),
+                 ('UNPAID','UNPAID'))
+    email = models.ForeignKey(User,on_delete=models.CASCADE)
+    event_name = models.ForeignKey('event',on_delete=models.CASCADE)
+    payment = models.CharField(max_length=10, choices=pay_status,
+        default='UNPAID')
+    date_time = models.DateTimeField(auto_now=True)
+     
+    def __str__(self):
+        return str(self.email)
+
+from django.contrib import admin
+
+
+admin.site.register(student_registered_events)
