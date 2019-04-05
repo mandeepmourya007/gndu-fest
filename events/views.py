@@ -29,7 +29,7 @@ def enterevent(request,name):
         payment = 'UNPAID'
         s = student_registered_events(email,events,payment)
         s.save()
-    # return render(request,"events/enterevent.html",{ "events":events})
+    return render(request,"events/enterevent.html",{ "events":events})
 
    
 
