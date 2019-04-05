@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from .models import event
 from .forms import eventform
 from django.contrib.auth.models import User
@@ -21,18 +21,26 @@ def p(request):
 #     events = event.objects.filter(id = number)
 #     return render(request,"events/enterevent.html",{ "events":events})
 
-
+#@login_required
 def enterevent(request,name):
-    if(request.user.is_authenticated):
-        email  = request.user
-        print(email)
-        print(email)
-        print(email)
-        payment = 'UNPAID'
-        events = event.objects.filter(name = name)
-    #    s = student_registered_events(email,events,payment)
-        #s.save()
-    return render(request,"events/enterevent.html",{ "events":events})
+    #if(request.user.is_authenticated):
+
+        
+    return render(request,"events/enterevent.html")
+
+    
+def save(request,name):
+
+    email  = str(request.user)
+    print(email)
+    print(email)
+    print(email)
+    payment = 'UNPAID'
+    events = event.objects.filter(name = name)
+
+    s = student_registered_events(email,events,payment)
+    #s.save()
+    return HttpResponse("registeration successfulll")
 
    
 

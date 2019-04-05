@@ -4,10 +4,17 @@
 
 
 {% block content %}
-<div>
-<div style=" padding-top:80px">
-  <form method="" action="">
-
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+  <form method="post" action="">
+{% csrf_token %}
 
 <table border="1" align="center" width="400" bgcolor="#CCCCCC" >
 
@@ -112,11 +119,10 @@ female<input type="radio" name="g" value="f"/>
 
 
 </form>
-</div>
+
 
 
 <!-- position of footer -->
 
-<footer style="padding:0px">
+
 {%  endblock %}
-</footer>
