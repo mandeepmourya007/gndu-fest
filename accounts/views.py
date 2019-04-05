@@ -29,6 +29,7 @@ def log_in(request):
             u=request.POST.get("username")
             p=request.POST.get("password")
             user=authenticate(request,username=u,password=p)
+           # print("\n" +user +"\n")
             if user is not None:
                 login(request,user)
                 messages.success(request, ' Welcome to Tech Fest '+ u )

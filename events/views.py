@@ -25,10 +25,13 @@ def p(request):
 def enterevent(request,name):
     if(request.user.is_authenticated):
         email  = request.user
-        print("\n"+events+"\n")
+        print(email)
+        print(email)
+        print(email)
         payment = 'UNPAID'
-        s = student_registered_events(email,events,payment)
-        s.save()
+        events = event.objects.filter(name = name)
+    #    s = student_registered_events(email,events,payment)
+        #s.save()
     return render(request,"events/enterevent.html",{ "events":events})
 
    
