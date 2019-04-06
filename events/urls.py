@@ -8,6 +8,6 @@ urlpatterns = [
     
     path("eventreg",views.eventreg,name="eventreg"),
     path("p",views.p),
-    path("enterevent/<slug:name>",views.enterevent,name="enterevent"),
-    #path("enterevent/<slug:name>",views.save,name="enterevent"),
+    path("enterevent/<str:name>",views.enterevent,name="enterevent"),
+   # path("enterevent/<str:name>/<int:id>",views.ticket,name="ticket"),
     ]

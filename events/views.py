@@ -25,27 +25,32 @@ def p(request):
 def enterevent(request,name):
 
     if(request.user.is_authenticated):
-        pass
+        email  = request.user
+        print(email)
+        print(email)
+        print(email)
+        payment = 'UNPAID'
+        events = event.objects.filter(name = name)[0]
+        #print("\n" +str(events))
+        s = student_registered_events(email=email,event_name=events)
+        ss=student_registered_events.objects.all()
+        if(not s in ss):
+           # s.save()
+           print("\n data saved  ")
+        else:
+            print("\n data not saved  ")
+            #return render(request,"events/ticket.html",{"data":"you are already registered for" + name+" event"})    
+       # print(s.email)
+      #  print(s.event_name)
+        return render(request,"events/ticket.html",{"data":s.id})
     else:
 
         return redirect("accounts:login")
 
         
-    return render(request,"events/enterevent.html")
+   # return render(request,"events/enterevent.html")
 
     
-def save(request,name):
-
-    email  = str(request.user)
-    print(email)
-    print(email)
-    print(email)
-    payment = 'UNPAID'
-    events = event.objects.filter(name = name)
-
-    s = student_registered_events(email,events,payment)
-    #s.save()
-    return HttpResponse("registeration successfulll")
 
    
 
