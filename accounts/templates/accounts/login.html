@@ -154,7 +154,7 @@
                 </div>
                 <div class="modal-footer justify-content-center">
 
-                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+                         <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
                 </div>
             </div>
         </div>
@@ -166,7 +166,9 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 ml-auto mr-auto">
     <div class="card card-login">
-        <form class="form" method="" action="">
+        <form class="form" method="post" action="">
+
+          {% csrf_token %}
           <div class="card-header card-header-primary text-center">
             <h4 class="card-title">Log in</h4>
             <div class="social-line">
@@ -185,12 +187,12 @@
           <div class="card-body">
 
             <div class="input-group">
-              <div class="input-group-prepend">
+             <!--  <div class="input-group-prepend">
                 <span class="input-group-text">
                     <i class="material-icons">face</i>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="First Name...">
+              <input type="text" class="form-control" placeholder="First Name..."> -->
             </div>
 
             <div class="input-group">
@@ -199,7 +201,8 @@
                     <i class="material-icons">mail</i>
                 </span>
               </div>
-              <input type="email" class="form-control" placeholder="Email...">
+              <input type="email" class="form-control" 
+              name="username" placeholder="Email...">
             </div>
 
             <div class="input-group">
@@ -209,7 +212,8 @@
                 </span>
               </div>
 
-              <input type="password" class="form-control" placeholder="Password...">
+              <input type="password" class="form-control" 
+              name="password" placeholder="Password...">
             </div>
 
             <!-- If you want to add a checkbox to this form, uncomment this code
@@ -220,9 +224,10 @@
                 Subscribe to newsletter
               </label>
             </div> -->
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
           </div>
           <div class="footer text-center">
-            <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+           
           </div>
         </form>
       </div>

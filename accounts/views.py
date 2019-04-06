@@ -33,8 +33,9 @@ def log_in(request):
             if user is not None:
                 login(request,user)
                 messages.success(request, ' Welcome to Tech Fest '+ u )
-                return redirect("home")
-        return render(request,'accounts/login.html')
+                return redirect("events:event")
+        return render(request,"accounts/login.html")
+        
 
 
 """def sign_up(request):

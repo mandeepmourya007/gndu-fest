@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .models import event
 from .forms import eventform
 from django.contrib.auth.models import User
@@ -23,7 +23,12 @@ def p(request):
 
 #@login_required
 def enterevent(request,name):
-    #if(request.user.is_authenticated):
+
+    if(request.user.is_authenticated):
+        pass
+    else:
+
+        return redirect("accounts:login")
 
         
     return render(request,"events/enterevent.html")
