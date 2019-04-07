@@ -80,7 +80,7 @@ class student_registered_events(models.Model):
     pay_status = (('PAID','PAID'),
                  ('UNPAID','UNPAID'))
     email = models.ForeignKey(User,on_delete=models.CASCADE)
-    event_name = models.ForeignKey('event',on_delete=models.CASCADE)
+    event_name = models.ManyToManyField('event')
     payment = models.CharField(max_length=10, choices=pay_status,
         default='UNPAID')
     date_time = models.DateTimeField(auto_now=True)
