@@ -26,6 +26,8 @@ def home(request):
             return render(request,"home.html")
     return render(request,"home.html")
 
+def error(request):
+    return render(request,"error.html")
 
 def about(request):
     return render(request,"about.html")
