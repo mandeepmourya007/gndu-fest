@@ -4,7 +4,7 @@ from .forms import eventform
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 from accounts.models import studentsignup
-from .models import student_registered_events
+from .models import student_registere_event
 def eventf(request):
     events=event.objects.all()
 
@@ -13,7 +13,8 @@ def eventf(request):
 
     return render(request,"events/event.html",{"events":events})
 def p(request):
-    events=event.objects.all()
+    #events=event.objects.all()
+    ss=student_registered_events.objects.all()
     return render(request,"events/p.html",{"events":events})
 
 # def enterevent(request,number):

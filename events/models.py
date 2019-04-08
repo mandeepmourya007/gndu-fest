@@ -76,19 +76,19 @@ admin.site.register(announcements)
 admin.site.register(event_organisers)
 
 
-class student_registered_events(models.Model):
+class student_registere_event(models.Model):
     pay_status = (('PAID','PAID'),
                  ('UNPAID','UNPAID'))
     email = models.ForeignKey(User,on_delete=models.CASCADE)
-    event_name = models.ManyToManyField('event')
+    event_name = models.ForeignKey('event',on_delete=models.CASCADE)
     payment = models.CharField(max_length=10, choices=pay_status,
         default='UNPAID')
     date_time = models.DateTimeField(auto_now=True)
      
     def __str__(self):
-        return str(self.email)
+        return str(self.email.username  )
 
 from django.contrib import admin
 
 
-admin.site.register(student_registered_events)
+admin.site.register(student_registere_event)
