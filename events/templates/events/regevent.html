@@ -1,0 +1,12 @@
+{% extends 'comman.html' %}
+{% load static %}
+{% block content %}
+<br/><br/><br/><br/>
+{% for event in eventsp %}
+<h1>{{ event.event_name }}</h1>
+<h1>{{ event.email }}</h1>
+<h1>{{ event.id }}</h1>
+
+{% endfor %}
+
+{% endblock %}

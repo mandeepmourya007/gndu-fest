@@ -20,7 +20,11 @@ def eventf(request):
         return render(request,"events/event.html",{"events":events})
         
 
-        
+
+def show_events_registed(request):
+    email = request.user
+    registed_events = student_registere_event.objects.filter(email=email)
+    return render(request,"events/regevent.html",{"eventsp":registed_events})   
 def p(request):
     #events=event.objects.all()
     ss=student_registere_event.objects.all()
