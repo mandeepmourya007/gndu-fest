@@ -60,15 +60,18 @@ def enterevent(request,name):
         ss=student_registere_event.objects.filter(email=email,event_name=events)
         print(ss)
 
-        if(ss.count() is 0):
+        if(ss.count() == 0):
            s.save()
+           c=0
+
            print("\n data saved  ")
         else:
+            c=1
             print("\n data not saved  ")
             #return render(request,"events/ticket.html",{"data":"you are already registered for" + name+" event"})    
        # print(s.email)
       #  print(s.event_name)
-        return render(request,"events/ticket.html",{"data":s.id,"count":ss.count(),'id':ss[0].id})
+        return render(request,"events/ticket.html",{"data":s.id,"count":c,'id':ss[0].id})
     else:
 
         return redirect("accounts:login")

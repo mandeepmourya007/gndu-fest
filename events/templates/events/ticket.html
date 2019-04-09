@@ -9,13 +9,14 @@ ticket
 {% block content %}
 
 <br><br><br><br><br><br><br>
-<h1> Thanks for registration</h1><br>
 
+{{  count }}
 {% if count %}
 <h3>You already registered : </h3> <br>
 
 <br><h2> With Registrstion Number</h2><h2>#WITTY_{{ id }}</h2>
 {% else %}
+<h1> Thanks for registration</h1><br>
 <h3>Your Registrstion Number :</h3> <h2>#WITTY_ {{ data }}</h2>
 {% endif %}
 {% endblock %}
