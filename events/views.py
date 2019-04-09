@@ -8,7 +8,8 @@ from .models import student_registere_event
 def eventf(request):
     if(request.user.is_authenticated):
         email = request.user
-        events = event.objects.all()
+        es = event.objects.all()
+        o=es[0].event_organisers
         student_already = student_registere_event.objects.filter(email=email)
         print(student_already)
         return render(request,"events/event.html",{"events":events})
@@ -35,8 +36,9 @@ def show_events_registed(request):
     return render(request,"events/regevent.html",dic)   
 def p(request):
     #events=event.objects.all()
-    ss=student_registere_event.objects.all()
-    return render(request,"events/p.html",{"events":events})
+
+    ss=student_registere_event.objects.filter(event_name=)
+    return render(request,"events/participant.html",{"events":events})
 
 # def enterevent(request,number):
 
