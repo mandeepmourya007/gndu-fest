@@ -24,7 +24,7 @@ def eventf(request):
 def show_events_registed(request):
     email = request.user
     registed_events = student_registere_event.objects.filter(email=email)
-    print()
+    es=event.objects.all()
     if registed_events.count():
         print("rRRRRRR")
         dic= {"eventsp":registed_events,"yes":1}

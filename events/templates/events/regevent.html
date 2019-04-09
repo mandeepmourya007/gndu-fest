@@ -5,12 +5,14 @@
 
 
 <br/><br/><br/><br/>
-
+<h1>Email : {{ request.user }}</h1>
 {% if yes %}
+<h1>Events You Are Registerd :</h1>
+<br>
 {% for event in eventsp %}
-<h1>{{ event.event_name }}</h1>
-<h1>{{ event.email }}</h1>
-<h1>{{ event.id }}</h1>
+<h1>{{ event.event_name }} -><h2> event id :{{ event.id }}</h2></h1>
+
+
 {% endfor %}
 
 {% else %}
