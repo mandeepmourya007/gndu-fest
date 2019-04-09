@@ -6,15 +6,24 @@ from django.contrib.auth.decorators import user_passes_test
 from accounts.models import studentsignup
 from .models import student_registere_event
 def eventf(request):
-    events=event.objects.all()
+    if(request.user.is_authenticated):
+        email = request.user
+        events = event.objects.all()
+        student_already = student_registere_event.objects.filter(email=email)
+        print(student_already)
+        return render(request,"events/event.html",{"events":events})
+        
 
-    print(events)
-    print(events)
+        
+    else:
+        events = event.objects.all()
+        return render(request,"events/event.html",{"events":events})
+        
 
-    return render(request,"events/event.html",{"events":events})
+        
 def p(request):
     #events=event.objects.all()
-    ss=student_registered_events.objects.all()
+    ss=student_registere_event.objects.all()
     return render(request,"events/p.html",{"events":events})
 
 # def enterevent(request,number):
@@ -27,23 +36,27 @@ def enterevent(request,name):
 
     if(request.user.is_authenticated):
         email  = request.user
-        print(email)
-        print(email)
-        print(email)
+        
+       
+        
         payment = 'UNPAID'
         events = event.objects.filter(name = name)[0]
         #print("\n" +str(events))
-        s = student_registered_events(email=email,event_name=events)
-        ss=student_registered_events.objects.all()
-        if(not s in ss):
-           # s.save()
+        s = student_registere_event(email=email,event_name=events)
+        print(s,end="dd")
+        #ss=student_registere_event.objects.filter(email=s['email'],event_name=s['event_name'])
+        ss=student_registere_event.objects.filter(email=email,event_name=events)
+        print(ss)
+
+        if(ss.count() is 0):
+           s.save()
            print("\n data saved  ")
         else:
             print("\n data not saved  ")
             #return render(request,"events/ticket.html",{"data":"you are already registered for" + name+" event"})    
        # print(s.email)
       #  print(s.event_name)
-        return render(request,"events/ticket.html",{"data":s.id})
+        return render(request,"events/ticket.html",{"data":s.id,"count":ss.count(),'id':ss[0].id})
     else:
 
         return redirect("accounts:login")

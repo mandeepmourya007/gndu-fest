@@ -86,7 +86,7 @@ class student_registere_event(models.Model):
     date_time = models.DateTimeField(auto_now=True)
      
     def __str__(self):
-        return str(self.email.username  )
+        return str(self.email.username[:10]+" "+str(self.event_name)  )
 
 from django.contrib import admin
 
