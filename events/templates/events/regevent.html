@@ -2,11 +2,20 @@
 {% load static %}
 {% block content %}
 <br/><br/><br/><br/>
+
+
+<br/><br/><br/><br/>
+
+{% if yes %}
 {% for event in eventsp %}
 <h1>{{ event.event_name }}</h1>
 <h1>{{ event.email }}</h1>
 <h1>{{ event.id }}</h1>
-
 {% endfor %}
+
+{% else %}
+<h1>{{ eventsp }}</h1>
+{% endif %}
+
 
 {% endblock %}

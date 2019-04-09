@@ -24,7 +24,15 @@ def eventf(request):
 def show_events_registed(request):
     email = request.user
     registed_events = student_registere_event.objects.filter(email=email)
-    return render(request,"events/regevent.html",{"eventsp":registed_events})   
+    print()
+    if registed_events.count():
+        print("rRRRRRR")
+        dic= {"eventsp":registed_events,"yes":1}
+        
+    else:
+        print("NNNNN")
+        dic= {"eventsp":"Opps.. You are not registered to any event","yes":0}
+    return render(request,"events/regevent.html",dic)   
 def p(request):
     #events=event.objects.all()
     ss=student_registere_event.objects.all()

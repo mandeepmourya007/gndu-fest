@@ -9,6 +9,6 @@ urlpatterns = [
     path("eventreg",views.eventreg,name="eventreg"),
     path("p",views.p),
     path("enterevent/<str:name>",views.enterevent,name="enterevent"),
-    path("show_events_registered",views.show_events_registed,name="event_registered"),
+    path("show_events_registered",views.show_events_registed,name="dashboard"),
    # path("enterevent/<str:name>/<int:id>",views.ticket,name="ticket"),
     ]
