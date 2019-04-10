@@ -1,0 +1,13 @@
+{% extends 'comman.html' %}
+{% load static %}
+{% block content %}
+{% for detail in detail %}
+{{ detail.name }}
+{{ detail.detail|linebreaks }}
+{{ detail.event_organisers }}
+<img class="img" src="../{{ detail.image }}">
+{{ detail.price }}
+{{ detail.date_time }}
+
+{% endfor %}
+{% endblock %}

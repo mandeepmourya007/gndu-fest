@@ -102,5 +102,6 @@ def eventreg(request):
 
 
 def eventdetail(request,name):
-    detail = event.objects.all(name = name) 
+    detail = event.objects.filter(name=name) 
+    print(detail)
     return render(request,'events/eventdetail.html',{'detail':detail})
