@@ -37,7 +37,7 @@ def show_events_registed(request):
 def p(request):
     #events=event.objects.all()
 
-    ss=student_registere_event.objects.filter(event_name=)
+    # ss=student_registere_event.objects.filter(event_name=)
     return render(request,"events/participant.html",{"events":events})
 
 # def enterevent(request,number):
