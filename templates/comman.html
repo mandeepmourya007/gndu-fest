@@ -73,13 +73,15 @@
                     <a href="{% url "events:dashboard" %}" class="nav-link">
                       Dashboard
                     </a>
-                    {% if request.user.is_staff_status %}
-                    <a href="{% url "events:organiser" user.username %}" class="nav-link"></a>
                   </li>
-                
+                    {% if request.user.is_staff %}
+                    <li>
+                    <a href="{% url "events:organiser" user.username %}" class="nav-link">Participants</a>
+                  </li>
+                  {% endif%}
                    </ul>
                    
-                   {% endif%}
+                   
                    {% endif %}
                     <ul class="navbar-nav ml-auto">
 {% if request.user.is_authenticated %}

@@ -3,11 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 
 
-class event_organisers(models.Model):
-    name = models.ForeignKey(User,on_delete=models.CASCADE)
 
-    def __str__(self):
-        return str(self.name)
 
 
 class event(models.Model):
@@ -24,7 +20,13 @@ class event(models.Model):
     def __str__(self):
         return self.name
 
+class event_organisers(models.Model):
+    
+    name = models.ForeignKey(User,on_delete=models.CASCADE)
+    event_name = models.CharField(max_length=60,default = "")
 
+    def __str__(self):
+        return str(self.name)
 
 
 class announcements(models.Model):
