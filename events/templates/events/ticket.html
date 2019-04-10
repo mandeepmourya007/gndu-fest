@@ -8,15 +8,23 @@ ticket
 
 {% block content %}
 
-<br><br><br><br><br><br><br>
 
-{{  count }}
-{% if count %}
-<h3>You already registered : </h3> <br>
 
-<br><h2> With Registrstion Number</h2><h2>#WITTY_{{ id }}</h2>
-{% else %}
-<h1> Thanks for registration</h1><br>
-<h3>Your Registrstion Number :</h3> <h2>#WITTY_ {{ data }}</h2>
-{% endif %}
+<div class="page-header error-page header-filter" style="background-image: url('{% static 'img/gndu1.jpg' %}')">
+    <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="title">You already registered ! </h1>
+		
+		<div class="tim-note">
+              <h2>
+              Your Registrstion Number : #WITTY_ {{ id }}</h2>
+            </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
