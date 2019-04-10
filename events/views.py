@@ -105,3 +105,10 @@ def eventdetail(request,name):
     detail = event.objects.filter(name=name) 
     print(detail)
     return render(request,'events/eventdetail.html',{'detail':detail})
+
+
+def organiser_show(request,email):
+    event_name = event.objects.filter(event_organisers = email)
+    print(event_name)
+    return render(request,'events/organiserp.html',{'event_name':event_name})
+
