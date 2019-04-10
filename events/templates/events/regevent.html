@@ -1,23 +1,31 @@
 {% extends 'comman.html' %}
 {% load static %}
 {% block content %}
-<br/><br/><br/><br/>
 
+<div class="page-header error-page header-filter" style="background-image: url('{% static 'img/gndu1.jpg' %}')">
+    <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="title">Email : {{ request.user }}</h1>
+          {% if yes %}
+          <h1 class="title">Events You Are Registerd in :</h1>
+          {% for event in eventsp %}
+          <div class="tim-note">
+		  <h1>{{ event.event_name }} -> event id :{{ event.id }}</h1>
+</div>
 
-<br/><br/><br/><br/>
-<h1>Email : {{ request.user }}</h1>
-{% if yes %}
-<h1>Events You Are Registerd :</h1>
-<br>
-{% for event in eventsp %}
-<h1>{{ event.event_name }} -><h2> event id :{{ event.id }}</h2></h1>
-
-<a href= "{% url 'events:detailevent' event.event_name  %}" class="btn btn-primary">show event details</a>
-{% endfor %}
-
-{% else %}
-<h1>{{ eventsp }}</h1>
+		  {% endfor %}
+		  {% else %}
+		  <div>
+		  <h1 class="title">{{ eventsp }}</h1>
+		</div>
 {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 {% endblock %}
