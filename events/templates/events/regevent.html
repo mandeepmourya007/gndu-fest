@@ -14,7 +14,7 @@
           <div class="tim-note">
 		  <h1>{{ event.event_name }} -> event id :{{ event.id }}</h1>
 </div>
-
+<a href= "{% url 'events:detailevent' event.event_name  %}" class="btn btn-info">show event details</a>
 		  {% endfor %}
 		  {% else %}
 		  <div>
