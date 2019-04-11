@@ -2,9 +2,34 @@
 {% load static %}
 
 {% block content %}
-<br/><br/><br/><br/>
-<br/>
-participants in
+
+ <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+          	
+             	{% for event_name in event %} 
+
+            <h3 class="card-title text-center"><br><br>Participants in {{ event_name.name }}</h3>
+
+          
+            {% endfor %}
+            {% for s in student_name %}
+  
+            <h3 class="card-title text-center">{{ s.email }}
+  {{ s.ename }}
+  {{ s.payment }}</h3>
+  <a href= "{% url 'events:student_detail' s.email  %}" class="btn btn-info">Participant Detail</a>
+
+{% endfor %}
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- participants in
 {% for event_name in event %} 
 {{ event_name.name }}
 {% endfor %}
@@ -14,7 +39,9 @@ participants in
   {{ s.payment }}
   <a href= "{% url 'events:student_detail' s.email  %}" class="btn btn-primary">Participant Detail</a>
 
-{% endfor %}
+{% endfor %} -->
+</div>
+
 
 
 {% endblock %}
