@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+<form accept-charset="UTF-8" role="form" method="post">
+                {% csrf_token %}
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-login" role="document">
         <div class="modal-content">
@@ -12,7 +14,7 @@
                         <h4 class="card-title">Log in</h4>
                         <div class="social-line">
                           <a href="#pablo" class="btn btn-just-icon btn-link">
-                            <i class="fa fa-facebook-square"></i>
+                            <i class="fa fa-facebook"></i>
                           </a>
                           <a href="#pablo" class="btn btn-just-icon btn-link">
                             <i class="fa fa-twitter"></i>
@@ -35,11 +37,11 @@
                                       <i class="material-icons">face</i>
                                     </span>
                                   </div>
-                                  <input type="text" class="form-control" placeholder="First Name...">
+                                  <input type="text" name="username" class="form-control" placeholder="Email...">
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -48,7 +50,7 @@
                                   </div>
                                     <input type="text" class="form-control" placeholder="Email...">
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <div class="input-group">
@@ -57,19 +59,21 @@
                                         <i class="material-icons">lock_outline</i>
                                     </span>
                                   </div>
-                                  <input type="password" placeholder="Password..." class="form-control" />
+                                  <input type="password" name="password" placeholder="Password..." class="form-control" />
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
                 </div>
             </div>
         </div>
     </div>
 </div>
+    </form>
 <!-- small modal -->
 
 <div class="modal fade" id="smallAlertModal" tabindex="-1" role="dialog">
@@ -256,7 +260,7 @@
                                 <div class="col-md-5">
                                     <div class="card-header card-header-image">
                                         
-                                            <img class="img" src="{% static "events/images/c++.png" %}">
+                                            <img class="img img-raised" src="{% static "events/images/c++.png" %}">
                                         </a>
                                     </div>
                                 </div>
@@ -280,37 +284,37 @@
                       </div>
 
                          {%  for e in events %}
+
                 <div class="tab-pane" id="{{ e.name }}">
-                  <h3 class="title">{{ e.name }}</h3>
-                  <!-- {{ e.detail }}
- -->
-                <div class="card card-plain card-blog">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="card-header card-header-image">
-                            
-                                <img class="img" src="../{{ e.image }}">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <h6 class="card-category text-info">{{ e.name }}</h6>
-                        <h3 class="card-title">
-                            <a href="#pablo">{{ e.name }}</a>
-                        </h3>
-                        <p class="card-description">
-                            {{ e.detail|linebreaks }}
-                        </p>
-                        <div class="col-lg-4 col-md-6">
-
-                               
-          <a href= "{% url 'events:enterevent' e.name  %}" class="btn btn-primary">Enter Event</a>
-
-                        </div>
-                    </div>
+                  <div class="blogs-4" id="blogs-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+              <h2 class="title">{{ e.name }}</h2>
+              <br>
+              <div class="card card-plain card-blog">
+                <div class="card-header card-header-image">
+                  <a href="#pablo">
+                    <img class="img img-raised" src="../{{ e.image }}">
+                  </a>
                 </div>
+                <div class="card-body">
+                  <h6 class="card-category text-info">{{ e.name }}</h6>
+                  <h3 class="card-title">
+                    <a href="#pablo">{{ e.name }}</a>
+                  </h3>
+                  <h5 class="card-description">
+                   {{ e.detail|linebreaks }}
+                  </h5>
+                  <a href= "{% url 'events:enterevent' e.name  %}" class="btn btn-primary">Enter Event</a>
+                </div>
+              </div>
+                  </div>
+                </div>
+              </div>
             </div>
-             </div>
+          </div>
+              
           {%   endfor %}
        
 

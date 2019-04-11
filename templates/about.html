@@ -11,9 +11,9 @@
             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
       {% endfor %}
       {% endif %}
-          <form accept-charset="UTF-8" role="form" method="post">
+         <form accept-charset="UTF-8" role="form" method="post">
                 {% csrf_token %}
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" style="margin-bottom: 80px>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-login" role="document">
         <div class="modal-content">
             <div class="card card-signup card-plain">
@@ -23,7 +23,7 @@
                         <h4 class="card-title">Log in</h4>
                         <div class="social-line">
                           <a href="#pablo" class="btn btn-just-icon btn-link">
-                            <i class="fa fa-facebook-square"></i>
+                            <i class="fa fa-facebook"></i>
                           </a>
                           <a href="#pablo" class="btn btn-just-icon btn-link">
                             <i class="fa fa-twitter"></i>
@@ -46,7 +46,7 @@
                                       <i class="material-icons">face</i>
                                     </span>
                                   </div>
-                                  <input type="text" name="username" class="form-control" placeholder="User Name...">
+                                  <input type="text" name="username" class="form-control" placeholder="Email...">
                                 </div>
                             </div>
 
