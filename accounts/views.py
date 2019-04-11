@@ -56,7 +56,7 @@ def log_in(request):
 def studentform(request):
 
     if request.method == 'POST':
-        #print(request.POST)
+        print(request.POST)
         #print(request.POST.get("password2"))
         form = studentreg(request.POST)
             # name=request.POST.get('name'),

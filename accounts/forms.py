@@ -14,9 +14,9 @@ class studentreg(forms.ModelForm):
 
            )
 
-    dept_name = (('Dept_1', 'BTECH-CSE'),
-                 ('Dept_2', 'BTECH-CIVIL'),
-                 ('Dept_3', 'BTECH-MECHANICAL'),)
+    dept_name = (('BTECH-CSE', 'BTECH-CSE'),
+                 ('BTECH-CIVIL', 'BTECH-CIVIL'),
+                 ('BTECH-MECHANICAL', 'BTECH-MECHANICAL'),)
     roll_no = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group ','placeholder':'Roll No'}),required = True,max_length=25)
     first_name = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group','placeholder':'First Name'}),required = True,max_length=60)
     last_name = forms.CharField(widget = forms.TextInput(attrs={'class':'input-group','placeholder':'Last Name'}),required = True,max_length=60)
