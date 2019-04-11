@@ -1,10 +1,24 @@
 {% extends 'comman.html' %}
 {% load static %}
 {% block content %}
- <br/><br/><br/><br/>
- <h1>See your participants</h1>
-  {% for e in event_name %}
-  <a href= "{% url 'events:student' e.id  %}" class="btn btn-primary">{{ e.name }}</a>
+<body class="error-page sidebar-collapse">
+  <!-- Extra details for Live View on GitHub Pages -->
+  <!-- Google Tag Manager (noscript) -->
+  
 
-  {% endfor %}
+ <div class="page-header error-page header-filter" style="background-image: url('{% static 'img/gndu1.jpg' %}')">
+    <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="title">See your participants</h1>
+         {% for e in event_name %}
+  <a href= "{% url 'events:student' e.id  %}" class="btn btn-info">{{ e.name }}</a>
+ {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+ </body>
+
 {% endblock %}

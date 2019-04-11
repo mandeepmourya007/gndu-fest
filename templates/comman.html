@@ -76,7 +76,9 @@
                   </li>
                     {% if request.user.is_staff %}
                     <li>
-                    <a href="{% url "events:organiser" user.username %}" class="nav-link">Participants</a>
+                    <a href="{% url "events:organiser" user.username %}" class="nav-link">
+                    Participants
+                  </a>
                   </li>
                   {% endif%}
                    </ul>
