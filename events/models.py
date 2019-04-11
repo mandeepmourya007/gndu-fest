@@ -90,7 +90,7 @@ class student_registere_event(models.Model):
      
     def __str__(self):
         # return str(self.email.username[:10]+" "+str(self.event_name)  )
-        return self.email.username[:10]
+        return self.email.username
 
 from django.contrib import admin
 

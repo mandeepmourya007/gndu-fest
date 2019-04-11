@@ -9,9 +9,9 @@ class student(models.Model):
         return self.username
 
 class studentsignup(models.Model):
-    dept_name = (('Dept_1', 'BTECH-CSE'),
-                 ('Dept_2', 'BTECH-CIVIL'),
-                 ('Dept_3', 'BTECH-MECHANICAL'),)
+    dept_name = (('BTECH-CSE', 'BTECH-CSE'),
+                 ('BTECH-CIVIL', 'BTECH-CIVIL'),
+                 ('BTECH-MECHANICAL', 'BTECH-MECHANICAL'),)
 
     sem = (('I', 'I'),
            ('II', 'II'),

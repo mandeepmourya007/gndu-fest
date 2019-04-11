@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import user_passes_test
 from accounts.models import studentsignup
 from .models import student_registere_event
 from .models import event_organisers
+from functools import wraps
+from accounts.models import studentsignup
+
 
 def eventf(request):
     if(request.user.is_authenticated):
@@ -112,13 +115,20 @@ def eventdetail(request,name):
 def organiser_show(request,email):
 
     event_name = event.objects.all() 
-    print(event_name)
+  
     return render(request,'events/organiserp.html',{'event_name':event_name})
-
+#@user_passes_test(lambda u: u.is_staff)
 def student_show(request,ename):
     stu_name = student_registere_event.objects.filter(event_name=ename)
     event_name = event.objects.filter(id=ename)
-    print(stu_name) 
+    
+    
     
     return render(request,'events/showp.html',{'student_name':stu_name,'event':event_name})
 
+
+def student_detail(request,id):
+    stu_name = studentsignup.objects.filter(email_id=id)
+    print(stu_name)
+    return render(request,'events/show_stu.html',{'student_name':stu_name})
+    

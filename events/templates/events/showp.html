@@ -12,7 +12,9 @@ participants in
   {{ s.email }}
   {{ s.ename }}
   {{ s.payment }}
-  
+  <a href= "{% url 'events:student_detail' s.email  %}" class="btn btn-primary">Participant Detail</a>
 
 {% endfor %}
+
+
 {% endblock %}

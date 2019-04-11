@@ -13,6 +13,8 @@ urlpatterns = [
     path("deatilevent/<str:name>",views.eventdetail,name="detailevent"),
     path("organiser/<str:email>",views.organiser_show,name="organiser"),
     path("studentp/<str:ename>",views.student_show,name="student"),
+    path("student_detail/<str:id>",views.student_detail,name="student_detail"),
+
 
 
    # path("enterevent/<str:name>/<int:id>",views.ticket,name="ticket"),
