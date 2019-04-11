@@ -1,0 +1,10 @@
+{% extends 'comman.html' %}
+{% load static %}
+{% block content %}
+ <br/><br/><br/><br/>
+ <h1>See your participants</h1>
+  {% for e in event_name %}
+  <a href= "{% url 'events:student' e.id  %}" class="btn btn-primary">{{ e.name }}</a>
+
+  {% endfor %}
+{% endblock %}

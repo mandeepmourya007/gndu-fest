@@ -1,0 +1,18 @@
+{% extends 'comman.html' %}
+{% load static %}
+
+{% block content %}
+<br/><br/><br/><br/>
+<br/>
+participants in
+{% for event_name in event %} 
+{{ event_name.name }}
+{% endfor %}
+{% for s in student_name %}
+  {{ s.email }}
+  {{ s.ename }}
+  {{ s.payment }}
+  
+
+{% endfor %}
+{% endblock %}

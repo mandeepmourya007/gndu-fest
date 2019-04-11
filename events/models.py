@@ -22,8 +22,9 @@ class event(models.Model):
 
 class event_organisers(models.Model):
     
+    
     name = models.ForeignKey(User,on_delete=models.CASCADE)
-    event_name = models.CharField(max_length=60,default = "")
+    
 
     def __str__(self):
         return str(self.name)
@@ -82,13 +83,14 @@ class student_registere_event(models.Model):
     pay_status = (('PAID','PAID'),
                  ('UNPAID','UNPAID'))
     email = models.ForeignKey(User,on_delete=models.CASCADE)
-    event_name = models.ForeignKey('event',on_delete=models.CASCADE)
+    event_name = models.ForeignKey(event,on_delete=models.CASCADE)
     payment = models.CharField(max_length=10, choices=pay_status,
         default='UNPAID')
     date_time = models.DateTimeField(auto_now=True)
      
     def __str__(self):
-        return str(self.email.username[:10]+" "+str(self.event_name)  )
+        # return str(self.email.username[:10]+" "+str(self.event_name)  )
+        return self.email.username[:10]
 
 from django.contrib import admin
 

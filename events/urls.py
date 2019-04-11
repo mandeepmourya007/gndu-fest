@@ -12,6 +12,8 @@ urlpatterns = [
     path("show_events_registered",views.show_events_registed,name="dashboard"),
     path("deatilevent/<str:name>",views.eventdetail,name="detailevent"),
     path("organiser/<str:email>",views.organiser_show,name="organiser"),
+    path("studentp/<str:ename>",views.student_show,name="student"),
+
 
    # path("enterevent/<str:name>/<int:id>",views.ticket,name="ticket"),
     ]
