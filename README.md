@@ -1,2 +1,2 @@
 # gndu-fest
-demo link :
+demo link : https://cess-soc-techfest.herokuapp.com/
